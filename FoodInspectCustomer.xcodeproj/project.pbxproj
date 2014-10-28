@@ -23,12 +23,12 @@
 		39563D6A19FE849C008A6FB5 /* ImpeachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39563D6919FE849C008A6FB5 /* ImpeachViewController.m */; };
 		39B483A819E947BC000666B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B483A719E947BC000666B0 /* main.m */; };
 		39B483AB19E947BC000666B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B483AA19E947BC000666B0 /* AppDelegate.m */; };
-		39B483AE19E947BC000666B0 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B483AD19E947BC000666B0 /* FirstViewController.m */; };
-		39B483B119E947BC000666B0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B483B019E947BC000666B0 /* SecondViewController.m */; };
 		39B483B419E947BC000666B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B483B219E947BC000666B0 /* Main.storyboard */; };
 		39B483B619E947BC000666B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B483B519E947BC000666B0 /* Images.xcassets */; };
 		39B483B919E947BC000666B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B483B719E947BC000666B0 /* LaunchScreen.xib */; };
 		39B483C519E947BC000666B0 /* FoodInspectCustomerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B483C419E947BC000666B0 /* FoodInspectCustomerTests.m */; };
+		39DEEE9319FF8BE0005C1975 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DEEE9219FF8BE0005C1975 /* HomeViewController.m */; };
+		39DEEE9919FF8C45005C1975 /* QueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DEEE9819FF8C45005C1975 /* QueryViewController.m */; };
 		40251DD791EBE16394896337 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46FB23C2A558E06CC3759460 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,16 +67,16 @@
 		39B483A719E947BC000666B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39B483A919E947BC000666B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		39B483AA19E947BC000666B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		39B483AC19E947BC000666B0 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		39B483AD19E947BC000666B0 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		39B483AF19E947BC000666B0 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		39B483B019E947BC000666B0 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		39B483B319E947BC000666B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39B483B519E947BC000666B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		39B483B819E947BC000666B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		39B483BE19E947BC000666B0 /* FoodInspectCustomerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodInspectCustomerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B483C319E947BC000666B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39B483C419E947BC000666B0 /* FoodInspectCustomerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodInspectCustomerTests.m; sourceTree = "<group>"; };
+		39DEEE9119FF8BE0005C1975 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		39DEEE9219FF8BE0005C1975 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		39DEEE9719FF8C45005C1975 /* QueryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryViewController.h; sourceTree = "<group>"; };
+		39DEEE9819FF8C45005C1975 /* QueryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryViewController.m; sourceTree = "<group>"; };
 		46FB23C2A558E06CC3759460 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E4A6064FED043A64B4E184C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FB26A6DF7A1E63663383F577 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,14 +169,14 @@
 				39563D4619FE7D3B008A6FB5 /* EGOTableViewPullRefresh */,
 				39B483A919E947BC000666B0 /* AppDelegate.h */,
 				39B483AA19E947BC000666B0 /* AppDelegate.m */,
-				39B483AC19E947BC000666B0 /* FirstViewController.h */,
-				39B483AD19E947BC000666B0 /* FirstViewController.m */,
-				39B483AF19E947BC000666B0 /* SecondViewController.h */,
-				39B483B019E947BC000666B0 /* SecondViewController.m */,
+				39DEEE9119FF8BE0005C1975 /* HomeViewController.h */,
+				39DEEE9219FF8BE0005C1975 /* HomeViewController.m */,
 				39B483B219E947BC000666B0 /* Main.storyboard */,
 				39B483B519E947BC000666B0 /* Images.xcassets */,
 				39B483B719E947BC000666B0 /* LaunchScreen.xib */,
 				39B483A519E947BC000666B0 /* Supporting Files */,
+				39DEEE9719FF8C45005C1975 /* QueryViewController.h */,
+				39DEEE9819FF8C45005C1975 /* QueryViewController.m */,
 			);
 			path = FoodInspectCustomer;
 			sourceTree = "<group>";
@@ -368,12 +368,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39B483B119E947BC000666B0 /* SecondViewController.m in Sources */,
 				39563D5A19FE7D3B008A6FB5 /* LoadMoreTableFooterView.m in Sources */,
 				39563D5C19FE7D3B008A6FB5 /* PullTableView.m in Sources */,
+				39DEEE9919FF8C45005C1975 /* QueryViewController.m in Sources */,
+				39DEEE9319FF8BE0005C1975 /* HomeViewController.m in Sources */,
 				39B483AB19E947BC000666B0 /* AppDelegate.m in Sources */,
 				39563D5919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m in Sources */,
-				39B483AE19E947BC000666B0 /* FirstViewController.m in Sources */,
 				39563D6A19FE849C008A6FB5 /* ImpeachViewController.m in Sources */,
 				39B483A819E947BC000666B0 /* main.m in Sources */,
 				39563D5B19FE7D3B008A6FB5 /* MessageInterceptor.m in Sources */,

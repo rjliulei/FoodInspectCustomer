@@ -304,7 +304,7 @@
 
 #pragma mark -
 #pragma mark Dealloc
-
+/*
 - (void)dealloc {
 	
 	_delegate=nil;
@@ -313,7 +313,7 @@
 	[_arrowImage release];
 	[_lastUpdatedLabel release];
     [super dealloc];
-}
+}*/
 
 
 @end

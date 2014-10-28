@@ -7,7 +7,7 @@
         <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -47,12 +47,12 @@
         <!--Impeach-->
         <scene sceneID="MxC-dh-Lsf">
             <objects>
-                <viewController id="Pq1-uv-lHP" sceneMemberID="viewController">
+                <viewController id="Pq1-uv-lHP" customClass="ImpeachViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mwn-Q0-A3X"/>
                         <viewControllerLayoutGuide type="bottom" id="0JD-5Y-nBy"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="adw-2S-pJD">
+                    <view key="view" contentMode="scaleToFill" id="adw-2S-pJD" customClass="Impeach">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -69,7 +69,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Impeach" id="y8t-WJ-sEh"/>
                     <connections>
-                        <outlet property="view" destination="BK7-RD-xwN" id="2jN-dI-dmZ"/>
+                        <outlet property="pullTableView" destination="BK7-RD-xwN" id="SB1-6B-ocs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4PP-EX-lVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -79,7 +79,7 @@
         <!--Query-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="QueryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>

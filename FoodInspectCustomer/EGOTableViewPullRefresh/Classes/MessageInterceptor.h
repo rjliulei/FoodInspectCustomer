@@ -32,6 +32,6 @@
     id receiver;
     id middleMan;
 }
-@property (nonatomic, assign) id receiver;
-@property (nonatomic, assign) id middleMan;
+@property (nonatomic, retain) id receiver;
+@property (nonatomic, retain) id middleMan;
 @end

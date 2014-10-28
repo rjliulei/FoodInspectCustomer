@@ -80,6 +80,6 @@
 @property (nonatomic, assign) BOOL pullTableIsLoadingMore;
 
 /* Delegate */
-@property (nonatomic, assign) IBOutlet id<PullTableViewDelegate> pullDelegate;
+@property (nonatomic, retain) IBOutlet id<PullTableViewDelegate> pullDelegate;
 
 @end

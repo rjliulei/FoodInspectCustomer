@@ -13,25 +13,122 @@
 @end
 
 @implementation ImpeachViewController
+@synthesize pullTableView;
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    // Release any cached data, images, etc that aren't in use.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - View lifecycle
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.pullTableView.pullArrowImage = [UIImage imageNamed:@"blackArrow"];
+    self.pullTableView.pullBackgroundColor = [UIColor yellowColor];
+    self.pullTableView.pullTextColor = [UIColor blackColor];
 }
-*/
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    [super viewWillAppear:animated];
+    if(!self.pullTableView.pullTableIsRefreshing) {
+        self.pullTableView.pullTableIsRefreshing = YES;
+        [self performSelector:@selector(refreshTable) withObject:nil afterDelay:3.0f];
+    }
+}
+
+- (void)viewDidUnload
+{
+    [self setPullTableView:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Refresh and load more methods
+
+- (void) refreshTable
+{
+    /*
+     
+     Code to actually refresh goes here.
+     
+     */
+    self.pullTableView.pullLastRefreshDate = [NSDate date];
+    self.pullTableView.pullTableIsRefreshing = NO;
+}
+
+- (void) loadMoreDataToTable
+{
+    /*
+     
+     Code to actually load more data goes here.
+     
+     */
+    self.pullTableView.pullTableIsLoadingMore = NO;
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 5;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"Row %i", indexPath.row];
+    
+    return cell;
+}
+
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [NSString stringWithFormat:@"Section %i begins here!", section];
+}
+
+- (NSString *) tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return [NSString stringWithFormat:@"Section %i ends here!", section];
+    
+}
+
+#pragma mark - PullTableViewDelegate
+
+- (void)pullTableViewDidTriggerRefresh:(PullTableView *)pullTableView
+{
+    [self performSelector:@selector(refreshTable) withObject:nil afterDelay:3.0f];
+}
+
+- (void)pullTableViewDidTriggerLoadMore:(PullTableView *)pullTableView
+{
+    [self performSelector:@selector(loadMoreDataToTable) withObject:nil afterDelay:3.0f];
+}
+
 
 @end

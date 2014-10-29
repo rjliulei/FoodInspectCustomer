@@ -33,6 +33,16 @@
     self.pullTableView.pullArrowImage = [UIImage imageNamed:@"blackArrow"];
     self.pullTableView.pullBackgroundColor = [UIColor yellowColor];
     self.pullTableView.pullTextColor = [UIColor blackColor];
+    
+    if (self.pullTableView.style == UITableViewStylePlain) {
+        UIEdgeInsets contentInset = self.pullTableView.contentInset;
+        contentInset.top = 20;
+        [self.pullTableView setContentInset:contentInset];
+        
+        UIView *barBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+        barBackground.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.9];
+        [self.view addSubview:barBackground];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18972CC81A0660B600A4CC64 /* MLTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 18972CC71A0660B600A4CC64 /* MLTableAlert.m */; };
+		18972CCA1A06714300A4CC64 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18972CC91A06714300A4CC64 /* ViewController.xib */; };
 		39563D4519FE7C4D008A6FB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39563D4419FE7C4D008A6FB5 /* QuartzCore.framework */; };
 		39563D5919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39563D4919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m */; };
 		39563D5A19FE7D3B008A6FB5 /* LoadMoreTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39563D4B19FE7D3B008A6FB5 /* LoadMoreTableFooterView.m */; };
@@ -43,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18972CC61A0660B600A4CC64 /* MLTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTableAlert.h; sourceTree = "<group>"; };
+		18972CC71A0660B600A4CC64 /* MLTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTableAlert.m; sourceTree = "<group>"; };
+		18972CC91A06714300A4CC64 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		39563D4419FE7C4D008A6FB5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		39563D4819FE7D3B008A6FB5 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		39563D4919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
@@ -102,6 +107,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18972CC31A065F9D00A4CC64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		18972CC41A065FA700A4CC64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18972CC61A0660B600A4CC64 /* MLTableAlert.h */,
+				18972CC71A0660B600A4CC64 /* MLTableAlert.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		18972CC51A065FB400A4CC64 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				39563D6819FE849C008A6FB5 /* ImpeachViewController.h */,
+				39563D6919FE849C008A6FB5 /* ImpeachViewController.m */,
+				39DEEE9119FF8BE0005C1975 /* HomeViewController.h */,
+				39DEEE9219FF8BE0005C1975 /* HomeViewController.m */,
+				39DEEE9719FF8C45005C1975 /* QueryViewController.h */,
+				39DEEE9819FF8C45005C1975 /* QueryViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		39563D4619FE7D3B008A6FB5 /* EGOTableViewPullRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,19 +198,17 @@
 		39B483A419E947BC000666B0 /* FoodInspectCustomer */ = {
 			isa = PBXGroup;
 			children = (
-				39563D6819FE849C008A6FB5 /* ImpeachViewController.h */,
-				39563D6919FE849C008A6FB5 /* ImpeachViewController.m */,
+				18972CC51A065FB400A4CC64 /* Controller */,
+				18972CC41A065FA700A4CC64 /* View */,
+				18972CC31A065F9D00A4CC64 /* Model */,
 				39563D4619FE7D3B008A6FB5 /* EGOTableViewPullRefresh */,
 				39B483A919E947BC000666B0 /* AppDelegate.h */,
 				39B483AA19E947BC000666B0 /* AppDelegate.m */,
-				39DEEE9119FF8BE0005C1975 /* HomeViewController.h */,
-				39DEEE9219FF8BE0005C1975 /* HomeViewController.m */,
 				39B483B219E947BC000666B0 /* Main.storyboard */,
+				18972CC91A06714300A4CC64 /* ViewController.xib */,
 				39B483B519E947BC000666B0 /* Images.xcassets */,
 				39B483B719E947BC000666B0 /* LaunchScreen.xib */,
 				39B483A519E947BC000666B0 /* Supporting Files */,
-				39DEEE9719FF8C45005C1975 /* QueryViewController.h */,
-				39DEEE9819FF8C45005C1975 /* QueryViewController.m */,
 			);
 			path = FoodInspectCustomer;
 			sourceTree = "<group>";
@@ -317,6 +349,7 @@
 				39563D5E19FE7D3B008A6FB5 /* blackArrow@2x.png in Resources */,
 				39563D6319FE7D3B008A6FB5 /* whiteArrow.png in Resources */,
 				39563D6119FE7D3B008A6FB5 /* grayArrow.png in Resources */,
+				18972CCA1A06714300A4CC64 /* ViewController.xib in Resources */,
 				39B483B619E947BC000666B0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +409,7 @@
 				39563D5919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m in Sources */,
 				39563D6A19FE849C008A6FB5 /* ImpeachViewController.m in Sources */,
 				39B483A819E947BC000666B0 /* main.m in Sources */,
+				18972CC81A0660B600A4CC64 /* MLTableAlert.m in Sources */,
 				39563D5B19FE7D3B008A6FB5 /* MessageInterceptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

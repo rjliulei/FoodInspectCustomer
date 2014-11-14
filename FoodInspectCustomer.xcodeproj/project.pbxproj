@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180A013D1A164C2000B80106 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 180A013C1A164C2000B80106 /* Company.m */; };
 		18972CC81A0660B600A4CC64 /* MLTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 18972CC71A0660B600A4CC64 /* MLTableAlert.m */; };
 		39563D4519FE7C4D008A6FB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39563D4419FE7C4D008A6FB5 /* QuartzCore.framework */; };
 		39563D5919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39563D4919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180A013B1A164C2000B80106 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
+		180A013C1A164C2000B80106 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
 		18972CC61A0660B600A4CC64 /* MLTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTableAlert.h; sourceTree = "<group>"; };
 		18972CC71A0660B600A4CC64 /* MLTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTableAlert.m; sourceTree = "<group>"; };
 		39563D4419FE7C4D008A6FB5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -108,6 +111,8 @@
 		18972CC31A065F9D00A4CC64 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				180A013B1A164C2000B80106 /* Company.h */,
+				180A013C1A164C2000B80106 /* Company.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 				39B483A819E947BC000666B0 /* main.m in Sources */,
 				18972CC81A0660B600A4CC64 /* MLTableAlert.m in Sources */,
 				39563D5B19FE7D3B008A6FB5 /* MessageInterceptor.m in Sources */,
+				180A013D1A164C2000B80106 /* Company.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

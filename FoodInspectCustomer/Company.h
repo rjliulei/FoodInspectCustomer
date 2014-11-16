@@ -26,5 +26,12 @@
             andDistance:(int)nDistance
             andLatitude:(double)nLatitude
             andLongitude:(double)nLongitude;
+/**解析json
+ @param attributes json信息
+ @param type 单位列表类型：1.检索到的单位列表 2.附近单位列表*/
+- (instancetype)initWithAttributes:(NSDictionary *)attributes
+                              type:(int)type;
+/***获取商家列表*/
++ (NSURLSessionDataTask *)globalCompanysWithBlock:(void (^)(NSArray *posts, NSError *error))block;
 
 @end

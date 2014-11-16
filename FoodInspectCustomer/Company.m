@@ -7,8 +7,25 @@
 //
 
 #import "Company.h"
+#import "AFAppAPIClient.h"
 
 @implementation Company
+
+static int const JSON_TYPE_COMPANYS = 1;
+static int const JSON_TYPE_COMPANYS_NEARBY = 2;
+
+static NSString * const JSON_KEY_COMPANY_LIST = @"companies";
+static NSString * const JSON_KEY_COMPANY_ID = @"companyId";
+static NSString * const JSON_KEY_COMPANY_NAME = @"companyName";
+
+static NSString * const JSON_KEY_COMPANY_NEARBY_LIST = @"rows";
+static NSString * const JSON_KEY_COMPANY_NEARBY_ID = @"companyid";
+static NSString * const JSON_KEY_COMPANY_NEARBY_NAME = @"qymc";
+static NSString * const JSON_KEY_COMPANY_NEARBY_LAT = @"jpswd";
+static NSString * const JSON_KEY_COMPANY_NEARBY_LNG = @"gpwjd";
+static NSString * const JSON_KEY_COMPANY_NEARBY_DIRECTION = @"gpsfwj";
+static NSString * const JSON_KEY_COMPANY_NEARBY_DISTANCE = @"jl";
+
 
 - (id)initWithParameters:(int)newID
             andCompanyId:(NSString *)newCompanyId
@@ -27,5 +44,59 @@
     n.latitude = nLatitude;
     n.longitude = nLongitude;
     return n;
+}
+
+- (instancetype)initWithAttributes:(NSDictionary *)attributes
+                              type:(int)type
+{
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    switch (type) {
+        case JSON_TYPE_COMPANYS:
+            self.companyId = [attributes valueForKeyPath:JSON_KEY_COMPANY_ID];
+            self.companyName = [attributes valueForKeyPath:JSON_KEY_COMPANY_NAME];
+            break;
+        case JSON_TYPE_COMPANYS_NEARBY:
+            
+            self.companyId = [attributes valueForKeyPath:JSON_KEY_COMPANY_NEARBY_ID];
+            self.companyName = [attributes valueForKeyPath:JSON_KEY_COMPANY_NEARBY_NAME];
+            self.direction = [attributes valueForKeyPath:JSON_KEY_COMPANY_NEARBY_DIRECTION];
+            self.distance = (int)[[attributes valueForKeyPath:JSON_KEY_COMPANY_NEARBY_DISTANCE] integerValue];
+            self.latitude = (double)[[attributes valueForKeyPath:JSON_KEY_COMPANY_NEARBY_LAT] doubleValue];
+            self.longitude = (double)[[attributes valueForKeyPath:JSON_KEY_COMPANY_NEARBY_LNG] doubleValue];
+
+            break;
+            
+        default:
+            break;
+    }
+    
+    return self;
+}
+
+
+/***获取商家列表*/
++ (NSURLSessionDataTask *)globalCompanysWithBlock:(void (^)(NSArray *posts, NSError *error))block
+{
+    return [[AFAppAPIClient sharedClient] GET:@"stream/0/posts/stream/global" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        NSArray *companysFromResponse = [JSON valueForKeyPath:@"data"];
+        NSMutableArray *mutableCompanys = [NSMutableArray arrayWithCapacity:[companysFromResponse count]];
+        for (NSDictionary *attributes in companysFromResponse) {
+            Company *company = [[Company alloc] initWithAttributes:attributes type:JSON_TYPE_COMPANYS];
+            [mutableCompanys addObject:company];
+        }
+        
+        if (block) {
+            block([NSArray arrayWithArray:mutableCompanys], nil);
+        }
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+        if (block) {
+            block([NSArray array], error);
+        }
+    }];
+
 }
 @end

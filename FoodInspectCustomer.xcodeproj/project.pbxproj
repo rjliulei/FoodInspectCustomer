@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		180A013D1A164C2000B80106 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 180A013C1A164C2000B80106 /* Company.m */; };
 		18972CC81A0660B600A4CC64 /* MLTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 18972CC71A0660B600A4CC64 /* MLTableAlert.m */; };
+		18ECB7771A179D0E00DC5AAF /* AFAppAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ECB7761A179D0E00DC5AAF /* AFAppAPIClient.m */; };
 		39563D4519FE7C4D008A6FB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39563D4419FE7C4D008A6FB5 /* QuartzCore.framework */; };
 		39563D5919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39563D4919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m */; };
 		39563D5A19FE7D3B008A6FB5 /* LoadMoreTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39563D4B19FE7D3B008A6FB5 /* LoadMoreTableFooterView.m */; };
@@ -49,6 +50,9 @@
 		180A013C1A164C2000B80106 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
 		18972CC61A0660B600A4CC64 /* MLTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTableAlert.h; sourceTree = "<group>"; };
 		18972CC71A0660B600A4CC64 /* MLTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTableAlert.m; sourceTree = "<group>"; };
+		18ECB7731A1794E000DC5AAF /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		18ECB7751A179D0E00DC5AAF /* AFAppAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppAPIClient.h; sourceTree = "<group>"; };
+		18ECB7761A179D0E00DC5AAF /* AFAppAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppAPIClient.m; sourceTree = "<group>"; };
 		39563D4419FE7C4D008A6FB5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		39563D4819FE7D3B008A6FB5 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		39563D4919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
@@ -139,6 +143,23 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		18ECB7721A17949400DC5AAF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				18ECB7731A1794E000DC5AAF /* Util.h */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		18ECB7741A179CE700DC5AAF /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				18ECB7751A179D0E00DC5AAF /* AFAppAPIClient.h */,
+				18ECB7761A179D0E00DC5AAF /* AFAppAPIClient.m */,
+			);
+			name = Http;
+			sourceTree = "<group>";
+		};
 		39563D4619FE7D3B008A6FB5 /* EGOTableViewPullRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +222,8 @@
 		39B483A419E947BC000666B0 /* FoodInspectCustomer */ = {
 			isa = PBXGroup;
 			children = (
+				18ECB7741A179CE700DC5AAF /* Http */,
+				18ECB7721A17949400DC5AAF /* Util */,
 				18972CC51A065FB400A4CC64 /* Controller */,
 				18972CC41A065FA700A4CC64 /* View */,
 				18972CC31A065F9D00A4CC64 /* Model */,
@@ -406,6 +429,7 @@
 				39563D5C19FE7D3B008A6FB5 /* PullTableView.m in Sources */,
 				39DEEE9919FF8C45005C1975 /* QueryViewController.m in Sources */,
 				39DEEE9319FF8BE0005C1975 /* HomeViewController.m in Sources */,
+				18ECB7771A179D0E00DC5AAF /* AFAppAPIClient.m in Sources */,
 				39B483AB19E947BC000666B0 /* AppDelegate.m in Sources */,
 				39563D5919FE7D3B008A6FB5 /* EGORefreshTableHeaderView.m in Sources */,
 				39563D6A19FE849C008A6FB5 /* ImpeachViewController.m in Sources */,

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AFAppAPIClient.h"
+
+//extern NSString * const AFAppAPIBaseURLString;
 /**公司类*/
 @interface Company : NSObject
 

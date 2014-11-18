@@ -7,7 +7,6 @@
 //
 
 #import "Company.h"
-#import "AFAppAPIClient.h"
 
 @implementation Company
 
@@ -25,6 +24,16 @@ static NSString * const JSON_KEY_COMPANY_NEARBY_LAT = @"jpswd";
 static NSString * const JSON_KEY_COMPANY_NEARBY_LNG = @"gpwjd";
 static NSString * const JSON_KEY_COMPANY_NEARBY_DIRECTION = @"gpsfwj";
 static NSString * const JSON_KEY_COMPANY_NEARBY_DISTANCE = @"jl";
+
+/**获取单位列表 参数：单位名称 ＋ pageindex*/
+static NSString * const DAO_URL_GET_COMPANY_LIST = @"ServiceAction!getCompanyList.action";
+static NSString * const PARAM_COMPANY_NAME = @"m.qymc=";
+static NSString * const PARAM_PAGE_INDEX = @"&m.page=";
+
+/**检索附近单位*/
+static NSString * const URL_DAO_SEARCH_AROUND = @"ServiceAction!searchNearCompany.action";
+static NSString * const PARAM_SEARCH_AROUND_LAT = @"m.lat=";
+static NSString * const PARAM_SEARCH_AROUND_LNG = @"&m.lng=";
 
 
 - (id)initWithParameters:(int)newID
@@ -81,7 +90,7 @@ static NSString * const JSON_KEY_COMPANY_NEARBY_DISTANCE = @"jl";
 /***获取商家列表*/
 + (NSURLSessionDataTask *)globalCompanysWithBlock:(void (^)(NSArray *posts, NSError *error))block
 {
-    return [[AFAppAPIClient sharedClient] GET:@"stream/0/posts/stream/global" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    return [[AFAppAPIClient sharedClient] GET:DAO_URL_GET_COMPANY_LIST parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         NSArray *companysFromResponse = [JSON valueForKeyPath:@"data"];
         NSMutableArray *mutableCompanys = [NSMutableArray arrayWithCapacity:[companysFromResponse count]];
         for (NSDictionary *attributes in companysFromResponse) {

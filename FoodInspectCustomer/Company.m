@@ -27,14 +27,13 @@ static NSString * const JSON_KEY_COMPANY_NEARBY_DISTANCE = @"jl";
 
 /**获取单位列表 参数：单位名称 ＋ pageindex*/
 static NSString * const DAO_URL_GET_COMPANY_LIST = @"ServiceAction!getCompanyList.action";
-static NSString * const PARAM_COMPANY_NAME = @"m.qymc=";
-static NSString * const PARAM_PAGE_INDEX = @"&m.page=";
+static NSString * const PARAM_COMPANY_NAME = @"m.qymc";
+static NSString * const PARAM_PAGE_INDEX = @"m.page";
 
 /**检索附近单位*/
 static NSString * const URL_DAO_SEARCH_AROUND = @"ServiceAction!searchNearCompany.action";
 static NSString * const PARAM_SEARCH_AROUND_LAT = @"m.lat=";
 static NSString * const PARAM_SEARCH_AROUND_LNG = @"&m.lng=";
-
 
 - (id)initWithParameters:(int)newID
             andCompanyId:(NSString *)newCompanyId
@@ -90,7 +89,13 @@ static NSString * const PARAM_SEARCH_AROUND_LNG = @"&m.lng=";
 /***获取商家列表*/
 + (NSURLSessionDataTask *)globalCompanysWithBlock:(void (^)(NSArray *posts, NSError *error))block
 {
-    return [[AFAppAPIClient sharedClient] GET:DAO_URL_GET_COMPANY_LIST parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    //2.设置登录参数
+    NSDictionary *dict = @{ PARAM_COMPANY_NAME:@"2", PARAM_PAGE_INDEX:@"1" };
+    
+    [AFAppAPIClient sharedClient].responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
+    [AFAppAPIClient sharedClient];
+    
+    return [[AFAppAPIClient sharedClient] POST:DAO_URL_GET_COMPANY_LIST parameters:dict success:^(NSURLSessionDataTask * __unused task, id JSON) {
         NSArray *companysFromResponse = [JSON valueForKeyPath:@"data"];
         NSMutableArray *mutableCompanys = [NSMutableArray arrayWithCapacity:[companysFromResponse count]];
         for (NSDictionary *attributes in companysFromResponse) {

@@ -7,6 +7,8 @@
 //
 
 #import "HomeViewController.h"
+#import "Company.h"
+#import "UIAlertView+AFNetworking.h"
 
 @interface HomeViewController ()
 
@@ -24,16 +26,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)reload:(__unused id)sender {
+    
+    NSURLSessionTask *task = [Company globalCompanysWithBlock:^(NSArray *posts, NSError *error) {
+        if (!error) {
+            self.companys = posts;
+            [self initAlartView];
+        }
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
+}
 
--(IBAction)showTableAlert:(id)sender
-{
+-(void)initAlartView{
+
     // create the alert
     self.alert = [MLTableAlert tableAlertWithTitle:@"Choose an option..." cancelButtonTitle:@"Cancel" numberOfRows:^NSInteger (NSInteger section)
                   {
-                      if (self.rowsNumField.text == nil || [self.rowsNumField.text length] == 0 || [self.rowsNumField.text isEqualToString:@"0"])
-                          return 1;
-                      else
-                          return [self.rowsNumField.text integerValue];
+                      
+                      return (NSInteger)[self.companys count];
+                      
+                      //                      if (self.rowsNumField.text == nil || [self.rowsNumField.text length] == 0 || [self.rowsNumField.text isEqualToString:@"0"])
+                      //                          return 1;
+                      //                      else
+                      //                          return [self.rowsNumField.text integerValue];
                   }
                                           andCells:^UITableViewCell* (MLTableAlert *anAlert, NSIndexPath *indexPath)
                   {
@@ -42,7 +58,9 @@
                       if (cell == nil)
                           cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                       
-                      cell.textLabel.text = [NSString stringWithFormat:@"Section %d Row %d", indexPath.section, indexPath.row];
+                      Company* company = [self.companys objectAtIndex:(NSUInteger)indexPath.row];
+                      
+                      cell.textLabel.text = [NSString stringWithFormat:@"%@", company.companyName];
                       
                       return cell;
                   }];
@@ -59,7 +77,13 @@
     
     // show the alert
     [self.alert show];
+    
 }
+
+-(IBAction)showTableAlert:(id)sender
+{
+    [self reload:nil];
+    }
 
 
 /*

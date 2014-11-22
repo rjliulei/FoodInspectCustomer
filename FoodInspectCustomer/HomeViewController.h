@@ -17,6 +17,9 @@
 @property (nonatomic, strong) IBOutlet UITextField *rowsNumField;
 @property (nonatomic, strong) IBOutlet UILabel *resultLabel;
 
+//单位列表
+@property (readwrite, nonatomic, strong) NSArray *companys;
+
 -(IBAction)showTableAlert:(id)sender;
 
 @end

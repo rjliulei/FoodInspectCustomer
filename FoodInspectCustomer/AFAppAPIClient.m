@@ -23,7 +23,8 @@
 #import "AFAppAPIClient.h"
 
 
-static NSString * const AFAppAPIBaseURLString = @"Http://sp.tzditu.cn:8080/";
+static NSString * const AFAppAPIBaseURLString = @"";
+//static NSString * const AFAppAPIBaseURLString = @"Http://192.168.199.182:8080/";
 
 @implementation AFAppAPIClient
 

@@ -36,5 +36,5 @@
                               type:(int)type;
 /***获取商家列表*/
 + (NSURLSessionDataTask *)globalCompanysWithBlock:(void (^)(NSArray *posts, NSError *error))block;
-
++(void)postJson;
 @end

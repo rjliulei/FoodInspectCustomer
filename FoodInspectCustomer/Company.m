@@ -7,6 +7,7 @@
 //
 
 #import "Company.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @implementation Company
 
@@ -34,6 +35,10 @@ static NSString * const PARAM_PAGE_INDEX = @"m.page";
 static NSString * const URL_DAO_SEARCH_AROUND = @"ServiceAction!searchNearCompany.action";
 static NSString * const PARAM_SEARCH_AROUND_LAT = @"m.lat=";
 static NSString * const PARAM_SEARCH_AROUND_LNG = @"&m.lng=";
+
+//test
+static NSString * const DAO_URL_GET_COMPANY_LIST_TEST = @"test/testByAction.action";
+static NSString * const PARAM_COMPANY_ID = @"companyId";
 
 - (id)initWithParameters:(int)newID
             andCompanyId:(NSString *)newCompanyId
@@ -90,10 +95,9 @@ static NSString * const PARAM_SEARCH_AROUND_LNG = @"&m.lng=";
 + (NSURLSessionDataTask *)globalCompanysWithBlock:(void (^)(NSArray *posts, NSError *error))block
 {
     //2.设置登录参数
-    NSDictionary *dict = @{ PARAM_COMPANY_NAME:@"2", PARAM_PAGE_INDEX:@"1" };
+    NSDictionary *dict = @{ PARAM_COMPANY_NAME:@"2", PARAM_PAGE_INDEX:@1};
     
     [AFAppAPIClient sharedClient].responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
-    [AFAppAPIClient sharedClient];
     
     return [[AFAppAPIClient sharedClient] POST:DAO_URL_GET_COMPANY_LIST parameters:dict success:^(NSURLSessionDataTask * __unused task, id JSON) {
         NSArray *companysFromResponse = [JSON valueForKeyPath:@"data"];
@@ -112,5 +116,46 @@ static NSString * const PARAM_SEARCH_AROUND_LNG = @"&m.lng=";
         }
     }];
 
+}
+
+// 将JSON串转化为字典或者数组
++ (id)toArrayOrNSDictionary:(NSData *)jsonData{
+    NSError *error = nil;
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                    options:NSJSONReadingMutableContainers
+                                                      error:&error];
+    
+    if (jsonObject != nil && error == nil){
+        
+        return jsonObject;
+    }else{
+        // 解析错误
+        return nil;
+    }
+    
+}
+
++(void)postJson
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSDictionary *dict = @{ PARAM_COMPANY_NAME:@"2", PARAM_PAGE_INDEX:@1};
+    
+    [manager POST:@"Http://sp.tzditu.cn:8080/ServiceAction!getCompanyList.action" parameters:dict success: ^(AFHTTPRequestOperation *operation, id responseObject){
+         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        result = [result stringByReplacingOccurrencesOfString:@"'" withString:@"\""];
+        NSData *data = [result dataUsingEncoding:NSUTF8StringEncoding];
+        
+        id jsonObject = [Company toArrayOrNSDictionary:data];
+        if([jsonObject isKindOfClass:[NSArray class]]){
+            
+        }else if([jsonObject isKindOfClass:[NSDictionary class]]){
+            
+        }
+        
+        NSLog(@"%@",result);
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+         NSLog(@"%@", error);
+    }];
 }
 @end

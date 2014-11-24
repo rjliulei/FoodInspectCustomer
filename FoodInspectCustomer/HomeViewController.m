@@ -82,8 +82,9 @@
 
 -(IBAction)showTableAlert:(id)sender
 {
-    [self reload:nil];
-    }
+//    [self reload:nil];
+    [Company postJson];
+}
 
 
 /*
